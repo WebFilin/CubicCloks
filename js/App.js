@@ -96,6 +96,7 @@ let displHours2 = document.getElementById("displHours2");
 let displMinuts = document.getElementById("displMinuts");
 let displSeconds = document.getElementById("displSeconds");
 
+// Контейнер для одного элемента кубика
 let cubes = document.getElementById('wrapCube');
 
 //Рисуем поле элементов по массиву ArrAll
@@ -129,37 +130,21 @@ function createDisplClocks(createNumber) {
    }
 }
 
-//Меняем элементы перебором массива numbers и заменой в массиве ArrAll - управляем временем на каждом дисплее отдельно
-function changeHours1(Hours1) {
+//Меняем элементы перебором массива numbers и заменой в массиве ArrAll - управляем временем на каждом дисплее отдельно по параметрам
+function changeTime(time, displ) {
    arrDispl.splice(0);
-   Array.prototype.push.apply(arrDispl, numbers[Hours1]);
-   createDisplClocks(displHours1);
-};
-
-function changeHours2(Hours2) {
-   arrDispl.splice(0);
-   Array.prototype.push.apply(arrDispl, numbers[Hours2]);
-   createDisplClocks(displHours2);
-};
-
-function changeMinuts(minuts) {
-   arrDispl.splice(0);
-   Array.prototype.push.apply(arrDispl, numbers[minuts]);
-   createDisplClocks(displMinuts);
-};
-
-function changeSeconds(seconds) {
-   arrDispl.splice(0);
-   Array.prototype.push.apply(arrDispl, numbers[seconds]);
-   createDisplClocks(displSeconds);
+   Array.prototype.push.apply(arrDispl, numbers[time]);
+   createDisplClocks(displ);
 };
 
 let hours1 = 1;
 let hours2 = 2;
 let minuts = 3;
-let seconds = 4
+let seconds = 4;
 
-changeHours1(hours1);
-changeHours2(hours2);
-changeMinuts(minuts);
-changeSeconds(seconds);
+changeTime(hours1, displHours1);
+changeTime(hours2, displHours2);
+changeTime(minuts, displMinuts);
+changeTime(seconds, displSeconds);
+
+
