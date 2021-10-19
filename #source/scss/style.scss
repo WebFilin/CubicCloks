@@ -1,0 +1,110 @@
+@import "zerostyle.scss";
+
+body {
+	background-color: rgb(95, 202, 161);
+}
+
+.timeContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.displ {
+	width: 200px;
+	height: 348px;
+	// border: 2px solid black;
+}
+.border {
+	margin-bottom: 85px;
+	padding-right: 35px;
+}
+.points {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	width: 50px;
+	height: 50px;
+	background-color: #337ab7;
+	border-radius: 10px;
+}
+
+.displMinuts {
+	display: flex;
+	flex-direction: column;
+	padding-top: 28px;
+	width: 200px;
+	height: 348px;
+	border-radius: 10px;
+}
+
+.displSeconds {
+	display: flex;
+	flex-direction: column;
+	padding-top: 28px;
+	width: 200px;
+	height: 348px;
+	border-radius: 10px;
+}
+
+tr {
+	display: flex;
+	width: 200px;
+}
+
+.cells {
+	width: 50px;
+	height: 50px;
+	margin: 3px;
+	font-size: 0px;
+	// border: 2px solid black;
+}
+
+.cubes {
+	display: none;
+	width: 50px;
+	height: 50px;
+	perspective: 6000px;
+	animation-name: cubes;
+	// animation-iteration-count: infinite;
+	transform: 50% 50% 0px;
+	transform-style: preserve-3d;
+	transform: rotate3d(1, 0, 0, 0deg);
+	animation-duration: 1s;
+}
+
+.side {
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	border-radius: 5px;
+	transform-origin: 50% 50% 25px;
+}
+
+.right {
+	background-color: #337ab7;
+}
+
+.bottom {
+	background-color: #bfe2ff;
+	transform: rotateX(-90deg);
+}
+
+.front {
+	background-color: #337ab7;
+	transform: rotateY(180deg);
+}
+
+@keyframes cubes {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotateX(0deg);
+	}
+
+	100% {
+		transform: rotateX(-180deg);
+	}
+}

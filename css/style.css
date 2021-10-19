@@ -1,0 +1,230 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+body {
+  background-color: #5fcaa1;
+}
+
+.timeContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.displ {
+  width: 200px;
+  height: 348px;
+}
+
+.border {
+  margin-bottom: 85px;
+  padding-right: 35px;
+}
+
+.points {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #337ab7;
+  border-radius: 10px;
+}
+
+.displMinuts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 28px;
+  width: 200px;
+  height: 348px;
+  border-radius: 10px;
+}
+
+.displSeconds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 28px;
+  width: 200px;
+  height: 348px;
+  border-radius: 10px;
+}
+
+tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+}
+
+.cells {
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+  font-size: 0px;
+}
+
+.cubes {
+  display: none;
+  width: 50px;
+  height: 50px;
+  -webkit-perspective: 6000px;
+          perspective: 6000px;
+  -webkit-animation-name: cubes;
+          animation-name: cubes;
+  -webkit-transform: 50% 50% 0px;
+          transform: 50% 50% 0px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotate3d(1, 0, 0, 0deg);
+          transform: rotate3d(1, 0, 0, 0deg);
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+.side {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  border-radius: 5px;
+  -webkit-transform-origin: 50% 50% 25px;
+          transform-origin: 50% 50% 25px;
+}
+
+.right {
+  background-color: #337ab7;
+}
+
+.bottom {
+  background-color: #bfe2ff;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+}
+
+.front {
+  background-color: #337ab7;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+@-webkit-keyframes cubes {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+}
+
+@keyframes cubes {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+}
