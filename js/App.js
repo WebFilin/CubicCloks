@@ -90,7 +90,7 @@ let numbers = [
    ],
 ];
 
-// Поля для вывода значения времени
+// Дисплеи для вывода значения времени
 let displHours1 = document.getElementById("displHours1");
 let displHours2 = document.getElementById("displHours2");
 let displMinuts = document.getElementById("displMinuts");
@@ -99,7 +99,7 @@ let displSeconds = document.getElementById("displSeconds");
 let cubes = document.getElementById('wrapCube');
 
 //Рисуем поле элементов по массиву ArrAll
-function createDisplClocs(createTable) {
+function createDisplClocks(createNumber) {
 
    // Перебираем массив arrDispl
    for (i = 0; i < arrDispl.length; i++) {
@@ -114,43 +114,52 @@ function createDisplClocs(createTable) {
          let cells = document.createElement("div");
          cells.className = 'cells';
          // Добавляем кубики в строки
-         tr.appendChild(cells);
+         tr.append(cells);
 
+         // Добавляем собарную цифру на нужный дисплей для отображения всех цифр
+         createNumber.append(tr);
 
-         createTable.append(tr);
+         // Отрисовываем нужный сигмент цифры по массиву numbers
          if (arrDispl[i][j] == 1) {
             let newCubes = cubes.cloneNode(true);
             newCubes.style.display = "block";
             cells.append(newCubes);
-            // console.log(newCubes)
          }
       }
-      // console.log(tr)
    }
-
-
 }
 
-
-
-//Меняем элементы перебором массива numbers и заменой массива ArrAll  
-function changeNumbers(time) {
+//Меняем элементы перебором массива numbers и заменой в массиве ArrAll - управляем временем на каждом дисплее отдельно
+function changeHours1(Hours1) {
    arrDispl.splice(0);
-   Array.prototype.push.apply(arrDispl, numbers[time]);
-
+   Array.prototype.push.apply(arrDispl, numbers[Hours1]);
+   createDisplClocks(displHours1);
 };
 
+function changeHours2(Hours2) {
+   arrDispl.splice(0);
+   Array.prototype.push.apply(arrDispl, numbers[Hours2]);
+   createDisplClocks(displHours2);
+};
 
-let hour = 3;
-let hour2 = 2;
+function changeMinuts(minuts) {
+   arrDispl.splice(0);
+   Array.prototype.push.apply(arrDispl, numbers[minuts]);
+   createDisplClocks(displMinuts);
+};
+
+function changeSeconds(seconds) {
+   arrDispl.splice(0);
+   Array.prototype.push.apply(arrDispl, numbers[seconds]);
+   createDisplClocks(displSeconds);
+};
+
+let hours1 = 1;
+let hours2 = 2;
 let minuts = 3;
-let seconds = 4;
+let seconds = 4
 
-
-createDisplClocs(displMinuts, changeNumbers(4));
-
-// createDisplClocs(displMinuts, changeNumbers(4));
-
-
-
-
+changeHours1(hours1);
+changeHours2(hours2);
+changeMinuts(minuts);
+changeSeconds(seconds);
