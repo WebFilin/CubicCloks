@@ -65,7 +65,7 @@ tr {
 	width: 50px;
 	height: 50px;
 	perspective: 6000px;
-	animation-name: cubes;
+	animation-name: cubesAnim;
 	// animation-iteration-count: infinite;
 	transform: 50% 50% 0px;
 	transform-style: preserve-3d;
@@ -95,7 +95,7 @@ tr {
 	transform: rotateY(180deg);
 }
 
-@keyframes cubes {
+@keyframes cubesAnim {
 	0% {
 		transform: rotate(0deg);
 	}
