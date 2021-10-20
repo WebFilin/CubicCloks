@@ -146,6 +146,9 @@ function aaa() {
 }
 
 aaa()
+aaa()
+
+aaa()
 
 console.log("переменная " + hours)
 
