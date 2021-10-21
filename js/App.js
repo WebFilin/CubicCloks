@@ -46,30 +46,32 @@ let createDisplClocks = (displ, time) => {
 
 // Разобраться с динамической заменой содержимого экрана часов, пока что идет добавление рядом но при замене цифр они таки меняются
 
-let hours = 1;
-let hours2 = 2;
-let minuts = 3;
-let seconds = 4;
+let hours = 0;
+let hours2 = 0;
+let minuts = 0;
+let seconds = 0;
 
 function clock() {
-   now = new Date();
-   h = now.getHours();
-   m = now.getMinutes() / 10;
-   s = now.getSeconds() / 10;
-   console.log(m)
-}
-clock()
+   let date = new Date();
+   h = date.getHours();
+   m = date.getMinutes();
+   s = date.getSeconds();
 
-function showTime() {
+   seconds = s;
 
-   createDisplClocks(allDispls.displHours1, hours);
-   createDisplClocks(allDispls.displHours2, hours2);
-   createDisplClocks(allDispls.displMinuts, minuts);
-   createDisplClocks(allDispls.displSeconds, seconds);
-
+   console.log(s)
 }
 
-showTime()
+// setInterval(() => {
+//   clock()
+// }, 1000);
+
+createDisplClocks(allDispls.displHours1, hours);
+createDisplClocks(allDispls.displHours2, hours2);
+createDisplClocks(allDispls.displMinuts, minuts);
+createDisplClocks(allDispls.displSeconds, seconds);
+
+
 
 
 
