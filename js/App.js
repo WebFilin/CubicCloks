@@ -7,8 +7,6 @@ let allDispls = {
    displSeconds: document.getElementById("displSeconds"),
 }
 
-
-
 // Контейнер для одного элемента кубика
 let cubes = document.getElementById('wrapCube');
 
@@ -29,6 +27,7 @@ let createDisplClocks = (displ, time) => {
          // Добавляем кубики в строки
          tr.append(cells);
 
+         // Добаляем сформированную цифру на экран через аргумент displ
          displ.append(tr);
 
          // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
@@ -45,6 +44,8 @@ let createDisplClocks = (displ, time) => {
    }
 }
 
+// Разобраться с динамической заменой содержимого экрана часов, пока что идет добавление рядом но при замене цифр они таки меняются
+
 let hours = 1;
 let hours2 = 2;
 let minuts = 3;
@@ -55,7 +56,9 @@ function clock() {
    h = now.getHours();
    m = now.getMinutes() / 10;
    s = now.getSeconds() / 10;
+   console.log(m)
 }
+clock()
 
 function showTime() {
 
