@@ -4,10 +4,10 @@ body {
 	background-color: rgb(95, 202, 161);
 }
 
-.timeContainer {
+.time-container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	// align-items: center;
 }
 
 .displ {
@@ -15,10 +15,12 @@ body {
 	height: 348px;
 	// border: 2px solid black;
 }
+
 .border {
 	margin-bottom: 85px;
 	padding-right: 35px;
 }
+
 .points {
 	display: flex;
 	flex-direction: column;
@@ -29,7 +31,7 @@ body {
 	border-radius: 10px;
 }
 
-.displMinuts {
+.base-displ__hours1 {
 	display: flex;
 	flex-direction: column;
 	padding-top: 28px;
@@ -38,7 +40,25 @@ body {
 	border-radius: 10px;
 }
 
-.displSeconds {
+.base-displ__hours2 {
+	display: flex;
+	flex-direction: column;
+	padding-top: 28px;
+	width: 200px;
+	height: 348px;
+	border-radius: 10px;
+}
+
+.base-displ__minuts {
+	display: flex;
+	flex-direction: column;
+	padding-top: 28px;
+	width: 200px;
+	height: 348px;
+	border-radius: 10px;
+}
+
+.base-displ__seconds {
 	display: flex;
 	flex-direction: column;
 	padding-top: 28px;

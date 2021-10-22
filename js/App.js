@@ -1,17 +1,16 @@
 
 let allDispls = {
    // Дисплеи для вывода значения времени
-   displHours1: document.getElementById("displHours1"),
-   displHours2: document.getElementById("displHours2"),
-   displMinuts: document.getElementById("displMinuts"),
-   displSeconds: document.getElementById("displSeconds"),
+   displHours1: document.querySelector(".base-displ__hours1"),
+   displHours2: document.querySelector(".base-displ__hours2 "),
+   displMinuts: document.querySelector(" .base-displ__minuts "),
+   displSeconds: document.querySelector(" .base-displ__seconds ")
 }
-
 // Контейнер для одного элемента кубика
-let cubes = document.getElementById('wrapCube');
+let cubes = document.querySelector('.cubes-wrap');
 
 //Рисуем поле элементов по массиву ArrAll и собираем цифру указанную в цункции changeNumbers
-let createDisplClocks = (displ, time) => {
+let createDisplClocks = (displ) => {
 
    // Перебираем массив arrDispl
    for (i = 0; i < arrDispl.length; i++) {
@@ -30,18 +29,23 @@ let createDisplClocks = (displ, time) => {
          // Добаляем сформированную цифру на экран через аргумент displ
          displ.append(tr);
 
-         // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
-         arrDispl.splice(0);
-         Array.prototype.push.apply(arrDispl, numbers[time]);
 
          // Отрисовываем нужный сегмент цифры по массиву numbers
          if (arrDispl[i][j] == 1) {
+
             let newCubes = cubes.cloneNode(true);
             newCubes.style.display = "block";
             cells.append(newCubes);
          }
       }
    }
+}
+
+// Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
+function showNumbers(time) {
+
+   arrDispl.splice(0);
+   Array.prototype.push.apply(arrDispl, numbers[time]);
 }
 
 // Разобраться с динамической заменой содержимого экрана часов, пока что идет добавление рядом но при замене цифр они таки меняются
@@ -66,10 +70,11 @@ function clock() {
 //   clock()
 // }, 1000);
 
-createDisplClocks(allDispls.displHours1, hours);
-createDisplClocks(allDispls.displHours2, hours2);
-createDisplClocks(allDispls.displMinuts, minuts);
-createDisplClocks(allDispls.displSeconds, seconds);
+showNumbers(4)
+createDisplClocks(allDispls.displHours1);
+showNumbers(2)
+createDisplClocks(allDispls.displHours2);
+
 
 
 
