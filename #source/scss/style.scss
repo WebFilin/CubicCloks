@@ -84,11 +84,14 @@ tr {
 	display: block;
 	width: 50px;
 	height: 50px;
-	perspective: 6000px;
-	animation-name: cubesAnim;
+}
+
+.cubes__animo-flip {
+	animation-name: cubesAnimo;
 	// animation-iteration-count: infinite;
 	transform: 50% 50% 0px;
 	transform-style: preserve-3d;
+	perspective: 6000px;
 	transform: rotate3d(1, 0, 0, 0deg);
 	animation-duration: 1s;
 }
@@ -115,7 +118,7 @@ tr {
 	transform: rotateY(180deg);
 }
 
-@keyframes cubesAnim {
+@keyframes cubesAnimo {
 	0% {
 		transform: rotate(0deg);
 	}

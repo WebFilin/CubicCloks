@@ -6,11 +6,15 @@ let allDispls = {
    displMinuts: document.querySelector(" .base-displ__minuts "),
    displSeconds: document.querySelector(" .base-displ__seconds ")
 }
-// Контейнер для одного элемента кубика
+
+// Контейнер для одного собраного элемента кубика
 let cubes = document.querySelector('.cubes-wrap');
 
 //Рисуем поле элементов по массиву ArrAll и собираем цифру указанную в цункции changeNumbers
 let createDisplClocks = (displ) => {
+
+   // Добавляем класс для запуска анимации кубика
+   cubes.classList.add("cubes__animo-flip");
 
    // Перебираем массив arrDispl
    for (i = 0; i < arrDispl.length; i++) {
@@ -22,7 +26,7 @@ let createDisplClocks = (displ) => {
 
          // Создаем отдельные элементы - кубики цифр
          let cells = document.createElement("div");
-         cells.className = 'cells';
+         cells.classList.add('cells');
 
          // Добавляем кубики в строки
          tr.append(cells);
@@ -36,8 +40,11 @@ let createDisplClocks = (displ) => {
             newCubes.style.display = "block";
             cells.append(newCubes);
          }
+
       }
+
    }
+
 }
 
 // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
@@ -46,12 +53,13 @@ function createNumber(time) {
    Array.prototype.push.apply(arrDispl, numbers[time]);
 }
 
-// Переменные для передачи значения времени
+// Переменные для передачи значения времени в функцию createNumber
 let hours = 0;
 let hours2 = 0;
 let minutes = 0;
 let seconds = 0;
 
+// Устанавливаем значение времени
 function currentTime() {
    let data = new Date();
    let timeHours = data.getHours();
@@ -64,12 +72,16 @@ function currentTime() {
    seconds = timeSeconds;
 
    console.log("Секунды " + seconds)
+
 }
 
 function showTime() {
-   currentTime()
+
+   cubes.classList.remove("cubes__animo-flip");
+   currentTime();
 }
 
+showTime()
 
 
 console.log("Внешние Секунды " + seconds)
