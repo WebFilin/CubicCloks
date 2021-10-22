@@ -19,6 +19,7 @@ let createDisplClocks = (displ) => {
 
       // Перебираем массив arrDispl - получаем все значения
       for (j = 0; j < arrDispl[i].length; j++) {
+
          // Создаем отдельные элементы - кубики цифр
          let cells = document.createElement("div");
          cells.className = 'cells';
@@ -29,10 +30,8 @@ let createDisplClocks = (displ) => {
          // Добаляем сформированную цифру на экран через аргумент displ
          displ.append(tr);
 
-
          // Отрисовываем нужный сегмент цифры по массиву numbers
          if (arrDispl[i][j] == 1) {
-
             let newCubes = cubes.cloneNode(true);
             newCubes.style.display = "block";
             cells.append(newCubes);
@@ -42,41 +41,47 @@ let createDisplClocks = (displ) => {
 }
 
 // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
-function showNumbers(time) {
-
+function createNumber(time) {
    arrDispl.splice(0);
    Array.prototype.push.apply(arrDispl, numbers[time]);
 }
 
-// Разобраться с динамической заменой содержимого экрана часов, пока что идет добавление рядом но при замене цифр они таки меняются
-
+// Переменные для передачи значения времени
 let hours = 0;
 let hours2 = 0;
-let minuts = 0;
+let minutes = 0;
 let seconds = 0;
 
-function clock() {
-   let date = new Date();
-   h = date.getHours();
-   m = date.getMinutes();
-   s = date.getSeconds();
+function currentTime() {
+   let data = new Date();
+   let timeHours = data.getHours();
+   let timeMinuts = data.getMinutes();
+   let timeSeconds = data.getSeconds();
 
-   seconds = s;
+   hours = timeHours;
+   hours2 = timeHours;
+   minutes = timeMinuts;
+   seconds = timeSeconds;
 
-   console.log(s)
+   console.log("Секунды " + seconds)
 }
 
-// setInterval(() => {
-//   clock()
-// }, 1000);
+function showTime() {
+   currentTime()
+}
 
-showNumbers(4)
+
+
+console.log("Внешние Секунды " + seconds)
+
+createNumber(hours);
 createDisplClocks(allDispls.displHours1);
-showNumbers(2)
+createNumber(hours2);
 createDisplClocks(allDispls.displHours2);
-
-
-
+createNumber(minutes);
+createDisplClocks(allDispls.displMinuts);
+createNumber(seconds);
+createDisplClocks(allDispls.displSeconds);
 
 
 
