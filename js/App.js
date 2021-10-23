@@ -62,7 +62,7 @@ function currentTime() {
    let minuts = data.getMinutes();
    let seconds = data.getSeconds();
 
-   // Переформатруем дату и разделяем ее на два значения для каждого табло
+   // Переформатруем дату и разделяем ее на два значения для каждого из табло
    let displH1 = Number(hours.toString().slice(0, 1));
    let displH2 = Number(hours.toString().slice(-1,));
 
@@ -71,6 +71,26 @@ function currentTime() {
 
    let displSec1 = Number(seconds.toString().slice(0, 1));
    let displSec2 = Number(seconds.toString().slice(-1,));
+
+   // Логика отображения времени
+
+   if (hours > 10) {
+      createDisplClocks(displHours, displH1);
+      createDisplClocks(displHours2, displH2);
+   }
+   else {
+      createDisplClocks(displHours, 0);
+      createDisplClocks(displHours2, hours);
+   }
+
+   if (minuts > 10) {
+      createDisplClocks(displMinuts, displMin1);
+      createDisplClocks(displMinuts2, displMin2);
+   }
+   else {
+      createDisplClocks(displMinuts, 0);
+      createDisplClocks(displMinuts2, minuts);
+   }
 
    if (seconds > 10) {
       createDisplClocks(displSeconds, displSec1);
@@ -81,25 +101,11 @@ function currentTime() {
       createDisplClocks(displSeconds2, seconds);
    }
 
-   console.log("Секунды " + seconds)
-
-   console.log("Секунды " + seconds.toString().slice(0, 1));
-   console.log("Секунды " + seconds.toString().slice(-1,));
-
-
-   // createDisplClocks(displHours, seconds);
-   // createDisplClocks(displHours2, seconds);
-
-   // createDisplClocks(displMinuts, seconds);
-   // createDisplClocks(displMinuts2, seconds);
-
-   // createDisplClocks(displSeconds, seconds);
-   // createDisplClocks(displSeconds2, seconds);
-
    setTimeout(() => {
       currentTime()
    }, 1000);
 }
+
 currentTime()
 
 
