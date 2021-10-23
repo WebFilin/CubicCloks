@@ -57,17 +57,10 @@ function createNumber(displ, time) {
    }
 }
 
+// Управляем выводом времени на дисплеи
+function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
 
-// Устанавливаем значение времени
-function currentTime() {
-
-   // Получаем дату
-   let data = new Date();
-   let hours = data.getHours();
-   let minuts = data.getMinutes();
-   let seconds = data.getSeconds();
-
-   // Переформатруем дату и разделяем ее на два значения для каждого из табло
+   // Переформатруем время и разделяем ее на два значения для отображения на каждом из табло
    let displH1 = Number(hours.toString().slice(0, 1));
    let displH2 = Number(hours.toString().slice(-1,));
 
@@ -104,10 +97,22 @@ function currentTime() {
       createNumber(displSeconds, 0);
       createNumber(displSeconds2, seconds);
    }
+}
 
-   // setTimeout(() => {
-   //    currentTime()
-   // }, 1000);
+// Устанавливаем значение времени
+function currentTime() {
+
+   // Получаем дату
+   let data = new Date();
+   let hours = data.getHours();
+   let minuts = data.getMinutes();
+   let seconds = data.getSeconds();
+
+   displayControl(hours, hours, minuts, minuts, seconds, seconds);
+
+   setTimeout(() => {
+      currentTime()
+   }, 1000);
 }
 
 currentTime()
