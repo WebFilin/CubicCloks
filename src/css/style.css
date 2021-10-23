@@ -84,34 +84,34 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.displ {
-  width: 200px;
-  height: 348px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .border {
-  margin-bottom: 85px;
-  padding-right: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
 }
 
 .points {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-top: 20px;
-  width: 50px;
-  height: 50px;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
   background-color: #337ab7;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.base-displ__hours1 {
+.base-displ {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,72 +119,26 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-top: 28px;
-  width: 200px;
-  height: 348px;
-  border-radius: 10px;
-}
-
-.base-displ__hours2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding-top: 28px;
-  width: 200px;
-  height: 348px;
-  border-radius: 10px;
-}
-
-.base-displ__minuts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding-top: 28px;
-  width: 200px;
-  height: 348px;
-  border-radius: 10px;
-}
-
-.base-displ__seconds {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding-top: 28px;
-  width: 200px;
-  height: 348px;
-  border-radius: 10px;
 }
 
 tr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 200px;
+  width: 100%;
 }
 
 .cells {
-  width: 50px;
-  height: 50px;
-  margin: 3px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
   font-size: 0px;
 }
 
 .cubes {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .cubes__animo-flip {
@@ -204,10 +158,10 @@ tr {
 }
 
 .side {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   position: fixed;
-  border-radius: 5px;
+  border-radius: 8px;
   -webkit-transform-origin: 50% 50% 25px;
       -ms-transform-origin: 50% 50% 25px;
           transform-origin: 50% 50% 25px;

@@ -1,5 +1,8 @@
 @import "zerostyle.scss";
 
+$cubeSize: 40px;
+$cubeRadius: 8px;
+
 body {
 	background-color: rgb(95, 202, 161);
 }
@@ -7,83 +10,47 @@ body {
 .time-container {
 	display: flex;
 	justify-content: center;
-	// align-items: center;
-}
-
-.displ {
-	width: 200px;
-	height: 348px;
+	align-items: center;
 	// border: 2px solid black;
 }
 
 .border {
-	margin-bottom: 85px;
-	padding-right: 35px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
 }
 
 .points {
-	display: flex;
-	flex-direction: column;
-	margin-top: 20px;
-	width: 50px;
-	height: 50px;
+	margin-top: 10px;
+	width: $cubeSize;
+	height: $cubeSize;
 	background-color: #337ab7;
-	border-radius: 10px;
+	border-radius: $cubeRadius;
 }
 
-.base-displ__hours1 {
+.base-displ {
 	display: flex;
 	flex-direction: column;
-	padding-top: 28px;
-	width: 200px;
-	height: 348px;
-	border-radius: 10px;
-}
-
-.base-displ__hours2 {
-	display: flex;
-	flex-direction: column;
-	padding-top: 28px;
-	width: 200px;
-	height: 348px;
-	border-radius: 10px;
-}
-
-.base-displ__minuts {
-	display: flex;
-	flex-direction: column;
-	padding-top: 28px;
-	width: 200px;
-	height: 348px;
-	border-radius: 10px;
-}
-
-.base-displ__seconds {
-	display: flex;
-	flex-direction: column;
-	padding-top: 28px;
-	width: 200px;
-	height: 348px;
-	border-radius: 10px;
 }
 
 tr {
 	display: flex;
-	width: 200px;
+	width: 100%;
 }
 
 .cells {
-	width: 50px;
-	height: 50px;
-	margin: 3px;
+	width: $cubeSize;
+	height: $cubeSize;
+	margin: 5px;
 	font-size: 0px;
 	// border: 2px solid black;
 }
 
 .cubes {
 	display: block;
-	width: 50px;
-	height: 50px;
+	width: $cubeSize;
+	height: $cubeSize;
 }
 
 .cubes__animo-flip {
@@ -97,10 +64,10 @@ tr {
 }
 
 .side {
-	height: 50px;
-	width: 50px;
+	height: $cubeSize;
+	width: $cubeSize;
 	position: fixed;
-	border-radius: 5px;
+	border-radius: $cubeRadius;
 	transform-origin: 50% 50% 25px;
 }
 

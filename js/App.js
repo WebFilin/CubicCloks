@@ -1,10 +1,12 @@
 
 let allDispls = {
    // Дисплеи для вывода значения времени
-   displHours1: document.querySelector(".base-displ__hours1"),
+   displHours: document.querySelector(".base-displ__hours"),
    displHours2: document.querySelector(".base-displ__hours2 "),
    displMinuts: document.querySelector(" .base-displ__minuts "),
-   displSeconds: document.querySelector(" .base-displ__seconds ")
+   displMinuts2: document.querySelector(" .base-displ__minuts2 "),
+   displSeconds: document.querySelector(" .base-displ__seconds "),
+   displSeconds2: document.querySelector(" .base-displ__seconds2 ")
 }
 
 // Контейнер для одного собраного элемента кубика
@@ -57,7 +59,9 @@ function createNumber(time) {
 let hours = 0;
 let hours2 = 0;
 let minutes = 0;
+let minutes2 = 0;
 let seconds = 0;
+let seconds2 = 0;
 
 // Устанавливаем значение времени
 function currentTime() {
@@ -69,32 +73,28 @@ function currentTime() {
    hours = timeHours;
    hours2 = timeHours;
    minutes = timeMinuts;
+   minutes2 = timeMinuts;
    seconds = timeSeconds;
+   seconds2 = timeSeconds;
 
    console.log("Секунды " + seconds)
-
 }
-
-function showTime() {
-
-   cubes.classList.remove("cubes__animo-flip");
-   currentTime();
-}
-
-showTime()
-
 
 console.log("Внешние Секунды " + seconds)
 
+
 createNumber(hours);
-createDisplClocks(allDispls.displHours1);
+createDisplClocks(allDispls.displHours);
 createNumber(hours2);
 createDisplClocks(allDispls.displHours2);
 createNumber(minutes);
 createDisplClocks(allDispls.displMinuts);
+createNumber(minutes2);
+createDisplClocks(allDispls.displMinuts2);
 createNumber(seconds);
 createDisplClocks(allDispls.displSeconds);
-
+createNumber(seconds2);
+createDisplClocks(allDispls.displSeconds2);
 
 
 
