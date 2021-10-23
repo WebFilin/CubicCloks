@@ -6,11 +6,19 @@ displMinuts2 = document.querySelector(" .base-displ__minuts2 ");
 displSeconds = document.querySelector(" .base-displ__seconds ");
 displSeconds2 = document.querySelector(" .base-displ__seconds2 ");
 
-// Контейнер для одного собраного элемента кубика
-let cubes = document.querySelector('.cubes-wrap');
+//Создаем контейнер для одного собраного элемента кубика
+let cubes = document.createElement("div");
+let cubesSides = `
+<div class="cubes cubes-wrap">
+		<div class="right side"></div>
+		<div class="bottom side"></div>
+		<div class="front side"></div>
+	</div>
+`
+cubes.insertAdjacentHTML("afterbegin", cubesSides)
 
 //Рисуем поле элементов по массиву ArrAll и собираем цифру указанную в цункции changeNumbers
-function createDisplClocks(displ, time) {
+function createNumber(displ, time) {
 
    // Очищаем таблицу экрана displ перед заполнением значениями
    while (displ.rows.length) {
@@ -20,9 +28,6 @@ function createDisplClocks(displ, time) {
    // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
    arrDispl.splice(0);
    Array.prototype.push.apply(arrDispl, numbers[time]);
-
-   // Добавляем класс для запуска анимации кубика
-   // cubes.classList.add("cubes__animo-flip");
 
    // Перебираем массив arrDispl
    for (i = 0; i < arrDispl.length; i++) {
@@ -73,37 +78,36 @@ function currentTime() {
    let displSec2 = Number(seconds.toString().slice(-1,));
 
    // Логика отображения времени
-
    if (hours > 10) {
-      createDisplClocks(displHours, displH1);
-      createDisplClocks(displHours2, displH2);
+      createNumber(displHours, displH1);
+      createNumber(displHours2, displH2);
    }
    else {
-      createDisplClocks(displHours, 0);
-      createDisplClocks(displHours2, hours);
+      createNumber(displHours, 0);
+      createNumber(displHours2, hours);
    }
 
    if (minuts > 10) {
-      createDisplClocks(displMinuts, displMin1);
-      createDisplClocks(displMinuts2, displMin2);
+      createNumber(displMinuts, displMin1);
+      createNumber(displMinuts2, displMin2);
    }
    else {
-      createDisplClocks(displMinuts, 0);
-      createDisplClocks(displMinuts2, minuts);
+      createNumber(displMinuts, 0);
+      createNumber(displMinuts2, minuts);
    }
 
    if (seconds > 10) {
-      createDisplClocks(displSeconds, displSec1);
-      createDisplClocks(displSeconds2, displSec2);
+      createNumber(displSeconds, displSec1);
+      createNumber(displSeconds2, displSec2);
    }
    else {
-      createDisplClocks(displSeconds, 0);
-      createDisplClocks(displSeconds2, seconds);
+      createNumber(displSeconds, 0);
+      createNumber(displSeconds2, seconds);
    }
 
-   setTimeout(() => {
-      currentTime()
-   }, 1000);
+   // setTimeout(() => {
+   //    currentTime()
+   // }, 1000);
 }
 
 currentTime()
