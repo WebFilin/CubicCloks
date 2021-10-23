@@ -8,12 +8,11 @@ displSeconds2 = document.querySelector(" .base-displ__seconds2 ");
 
 //Создаем контейнер для одного собраного элемента кубика
 let cubes = document.createElement("div");
+cubes.className = "cubes cubes-wrap"
 let cubesSides = `
-<div class="cubes cubes-wrap">
 		<div class="right side"></div>
 		<div class="bottom side"></div>
 		<div class="front side"></div>
-	</div>
 `
 cubes.insertAdjacentHTML("afterbegin", cubesSides)
 
@@ -27,7 +26,7 @@ function createNumber(displ, time) {
 
    // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
    arrDispl.splice(0);
-   Array.prototype.push.apply(arrDispl, numbers[time]);
+   let giveNumber = Array.prototype.push.apply(arrDispl, numbers[time]);
 
    // Перебираем массив arrDispl
    for (i = 0; i < arrDispl.length; i++) {
@@ -43,7 +42,7 @@ function createNumber(displ, time) {
          cells.classList.add('cells');
 
          // Отрисовываем нужный сегмент цифры по массиву numbers
-         if (arrDispl[i][j] == 1) {
+         if (arrDispl[i][j] === 1) {
             let newCubes = cubes.cloneNode(true);
             cells.append(newCubes);
          }
@@ -71,7 +70,7 @@ function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
    let displSec2 = Number(seconds.toString().slice(-1,));
 
    // Логика отображения времени
-   if (hours > 10) {
+   if (hours > 9) {
       createNumber(displHours, displH1);
       createNumber(displHours2, displH2);
    }
@@ -80,7 +79,7 @@ function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
       createNumber(displHours2, hours);
    }
 
-   if (minuts > 10) {
+   if (minuts > 9) {
       createNumber(displMinuts, displMin1);
       createNumber(displMinuts2, displMin2);
    }
@@ -89,7 +88,7 @@ function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
       createNumber(displMinuts2, minuts);
    }
 
-   if (seconds > 10) {
+   if (seconds > 9) {
       createNumber(displSeconds, displSec1);
       createNumber(displSeconds2, displSec2);
    }
@@ -110,9 +109,9 @@ function currentTime() {
 
    displayControl(hours, hours, minuts, minuts, seconds, seconds);
 
-   setTimeout(() => {
-      currentTime()
-   }, 1000);
+   // setTimeout(() => {
+   //    currentTime()
+   // }, 1000);
 }
 
 currentTime()
