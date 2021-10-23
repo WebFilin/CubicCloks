@@ -42,11 +42,8 @@ let createDisplClocks = (displ) => {
             newCubes.style.display = "block";
             cells.append(newCubes);
          }
-
       }
-
    }
-
 }
 
 // Получаем конкретную цифру для отрисовки - перерисовываем массив arrDispl по массиву numbers
@@ -56,12 +53,12 @@ function createNumber(time) {
 }
 
 // Переменные для передачи значения времени в функцию createNumber
-let hours = 0;
-let hours2 = 0;
-let minutes = 0;
-let minutes2 = 0;
+// let hours = 0;
+// let hours2 = 0;
+// let minutes = 0;
+// let minutes2 = 0;
 let seconds = 0;
-let seconds2 = 0;
+// let seconds2 = 0;
 
 // Устанавливаем значение времени
 function currentTime() {
@@ -70,31 +67,39 @@ function currentTime() {
    let timeMinuts = data.getMinutes();
    let timeSeconds = data.getSeconds();
 
-   hours = timeHours;
-   hours2 = timeHours;
-   minutes = timeMinuts;
-   minutes2 = timeMinuts;
-   seconds = timeSeconds;
-   seconds2 = timeSeconds;
+   let time = {
+      hours: timeHours,
+      hours2: timeHours,
+      minutes: timeMinuts,
+      minutes2: timeMinuts,
+      seconds: timeSeconds,
+      seconds2: timeSeconds,
+   };
 
-   console.log("Секунды " + seconds)
+   console.log("Секунды " + time.seconds);
+
+   setTimeout(() => {
+      currentTime()
+   }, 1000);
+
+
 }
 
-console.log("Внешние Секунды " + seconds)
 
+// createNumber(hours);
+// createDisplClocks(allDispls.displHours);
+// createNumber(hours2);
+// createDisplClocks(allDispls.displHours2);
+// createNumber(minutes);
+// createDisplClocks(allDispls.displMinuts);
+// createNumber(minutes2);
+// createDisplClocks(allDispls.displMinuts2);
+// createNumber(seconds);
 
-createNumber(hours);
-createDisplClocks(allDispls.displHours);
-createNumber(hours2);
-createDisplClocks(allDispls.displHours2);
-createNumber(minutes);
-createDisplClocks(allDispls.displMinuts);
-createNumber(minutes2);
-createDisplClocks(allDispls.displMinuts2);
-createNumber(seconds);
 createDisplClocks(allDispls.displSeconds);
-createNumber(seconds2);
-createDisplClocks(allDispls.displSeconds2);
+// createNumber(seconds2);
+// createDisplClocks(allDispls.displSeconds2);
+
 
 
 
