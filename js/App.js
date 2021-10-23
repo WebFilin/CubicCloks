@@ -1,5 +1,3 @@
-
-
 // Дисплеи для вывода значения времени
 displHours = document.querySelector(".base-displ__hours");
 displHours2 = document.querySelector(".base-displ__hours2 ");
@@ -7,7 +5,6 @@ displMinuts = document.querySelector(" .base-displ__minuts ");
 displMinuts2 = document.querySelector(" .base-displ__minuts2 ");
 displSeconds = document.querySelector(" .base-displ__seconds ");
 displSeconds2 = document.querySelector(" .base-displ__seconds2 ");
-
 
 // Контейнер для одного собраного элемента кубика
 let cubes = document.querySelector('.cubes-wrap');
@@ -58,28 +55,52 @@ function createDisplClocks(displ, time) {
 
 // Устанавливаем значение времени
 function currentTime() {
+
+   // Получаем дату
    let data = new Date();
    let hours = data.getHours();
    let minuts = data.getMinutes();
    let seconds = data.getSeconds();
 
-   console.log("Секунды " + seconds);
+   // Переформатруем дату и разделяем ее на два значения для каждого табло
+   let displH1 = Number(hours.toString().slice(0, 1));
+   let displH2 = Number(hours.toString().slice(-1,));
+
+   let displMin1 = Number(minuts.toString().slice(0, 1));
+   let displMin2 = Number(minuts.toString().slice(-1,));
+
+   let displSec1 = Number(seconds.toString().slice(0, 1));
+   let displSec2 = Number(seconds.toString().slice(-1,));
+
+   if (seconds > 10) {
+      createDisplClocks(displSeconds, displSec1);
+      createDisplClocks(displSeconds2, displSec2);
+   }
+   else {
+      createDisplClocks(displSeconds, 0);
+      createDisplClocks(displSeconds2, seconds);
+   }
+
+   console.log("Секунды " + seconds)
+
+   console.log("Секунды " + seconds.toString().slice(0, 1));
+   console.log("Секунды " + seconds.toString().slice(-1,));
+
+
+   // createDisplClocks(displHours, seconds);
+   // createDisplClocks(displHours2, seconds);
+
+   // createDisplClocks(displMinuts, seconds);
+   // createDisplClocks(displMinuts2, seconds);
+
+   // createDisplClocks(displSeconds, seconds);
+   // createDisplClocks(displSeconds2, seconds);
 
    setTimeout(() => {
       currentTime()
    }, 1000);
-
-   createDisplClocks(displHours, seconds);
-   createDisplClocks(displHours2, seconds);
-
-   createDisplClocks(displMinuts, seconds);
-   createDisplClocks(displMinuts2, seconds);
-
-   createDisplClocks(displSeconds, seconds);
-   createDisplClocks(displSeconds2, seconds);
-
 }
-// currentTime()
+currentTime()
 
 
 
