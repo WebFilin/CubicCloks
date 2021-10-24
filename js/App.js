@@ -58,40 +58,11 @@ function createNumber(displ, time) {
          displ.append(tr);
       }
    }
+
 }
-
-// Управление анимацией - запускаем только при изменении цифры на табло
-
-function addAnimRotation() {
-
-   // Получаем дисплеи для наблюдения
-   let target = displSeconds2;
-
-   // Конфигурация observer (за какими изменениями наблюдать)
-   const config = {
-      attributes: true,
-      childList: true,
-      subtree: true
-   };
-
-   const changes = () => {
-      console.log(11);
-      console.log(target);
-      let aa = target.querySelectorAll(".cubes")
-      // aa.classList.add("aaaaaaaaa")
-      console.log(aa)
-   }
-
-   // Создаем наблюдатель за событиями
-   let observer = new MutationObserver(changes);
-
-   observer.observe(target, config);
-}
-
-addAnimRotation()
 
 // Управляем выводом времени на дисплеи - на каждый дисплей (их два на каждую цифру) пердаем свою цифру индивидуально
-function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
+function displayControl(hours, minuts, seconds) {
 
    // Переформатруем время и разделяем ее на два значения для отображения на каждом из табло
    const displH1 = Number(hours.toString().slice(0, 1));
@@ -101,7 +72,7 @@ function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
    const displSec1 = Number(seconds.toString().slice(0, 1));
    const displSec2 = Number(seconds.toString().slice(-1,));
 
-   // Логика отображения времени - устанавливаем 0 на первом циферблате при одинарном числе
+   // Логика отображения времени - устанавливаем 0 на первом циферблате при полученном одинарном числе
    if (hours > 9) {
       createNumber(displHours, displH1);
       createNumber(displHours2, displH2);
@@ -128,6 +99,7 @@ function displayControl(hours, hours, minuts, minuts, seconds, seconds) {
       createNumber(displSeconds, 0);
       createNumber(displSeconds2, seconds);
    }
+
 }
 
 // Устанавливаем значение времени
@@ -139,10 +111,7 @@ function currentTime() {
    let minuts = data.getMinutes();
    let seconds = data.getSeconds();
 
-   // displayControl(hours, hours, minuts, minuts, seconds, seconds);
-
-   createNumber(displSeconds2, 1);
-   createNumber(displSeconds, 5);
+   displayControl(hours, minuts, seconds);
 
    // setTimeout(() => {
    //    currentTime()
@@ -151,6 +120,25 @@ function currentTime() {
 
 currentTime();
 
+// Управление анимацией - запускаем только при изменении цифры на табло
+function addAnimRotation(cubesOnDispl) {
+
+   // Получаем кубики только на данном дисплее
+   let allCubes = cubesOnDispl.querySelectorAll(".cubes");
+
+   // ДОбавляем класс для анимации
+   allCubes.forEach((item) => {
+      item.classList.add("cubes__animo-flip")
+   });
+
+   // Удаляем класс для анимации
+   allCubes.forEach((item) => {
+      item.addEventListener('animationend', function () {
+         item.classList.remove('cubes__animo-flip')
+      })
+   });
+
+}
 
 
 
