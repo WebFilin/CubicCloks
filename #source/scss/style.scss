@@ -11,18 +11,15 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// border: 2px solid black;
 }
 
 .border {
-	display: flex;
 	flex-direction: column;
-	align-items: center;
-	padding: 15px;
+	padding: 20px;
 }
 
 .points {
-	margin-top: 10px;
+	margin-top: 20px;
 	width: $cubeSize;
 	height: $cubeSize;
 	background-color: #337ab7;
@@ -43,8 +40,6 @@ tr {
 	width: $cubeSize;
 	height: $cubeSize;
 	margin: 5px;
-	font-size: 0px;
-	// border: 2px solid black;
 }
 
 .cubes {
@@ -55,7 +50,6 @@ tr {
 
 .cubes__animo-flip {
 	animation-name: cubesAnimo;
-	// animation-iteration-count: infinite;
 	transform: 50% 50% 0px;
 	transform-style: preserve-3d;
 	perspective: 6000px;
