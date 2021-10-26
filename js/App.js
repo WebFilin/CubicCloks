@@ -6,6 +6,7 @@ const displMinuts2 = document.querySelector(" .base-displ__minuts2 ");
 const displSeconds = document.querySelector(" .base-displ__seconds ");
 const displSeconds2 = document.querySelector(" .base-displ__seconds2 ");
 
+// Кнопки управления
 const btnStart = document.querySelector(".button-control__start ")
 const btnStop = document.querySelector(".button-control__stop ")
 
@@ -53,7 +54,8 @@ function displayControl(hours, minuts, seconds) {
 
       get displSec2() {
          console.log("get!")
-         animoGet(displSeconds2)
+         // animoGet(displSeconds2)
+         // addAnimoRotation(displSeconds2)
          return Number(seconds.toString().slice(-1,))
       }
    }
@@ -85,17 +87,14 @@ function displayControl(hours, minuts, seconds) {
    else {
       createNumber(displSeconds, displsTime.displSec1 = 0);
       createNumber(displSeconds2, displsTime.displSec2);
+      
    }
-
-
-
-   function animoGet(displ) {
-      console.log("animoGet сработала")
-      addAnimoRotation(displ)
-   }
-
+   addAnimoRotation(displSeconds2)
+   // function animoGet(displ) {
+   //    console.log("animoGet сработала")
+   //    addAnimoRotation(displ)
+   // }
 }
-
 
 //Рисуем поле элементов по массиву ArrAll и собираем цифру указанную в цункции changeNumbers
 function createNumber(displ, time) {
@@ -147,19 +146,17 @@ function addAnimoRotation(cubesOnDispl) {
    let cubesLists = cubesOnDispl.querySelectorAll(".cubes");
 
    // console.log(cubesOnDispl);
-   console.log(cubesLists);
+   // console.log(cubesLists);
 
    // Добавляем класс анимации
    cubesLists.forEach((item) => {
       item.classList.add("cubes__animo-flip");
+      item.addEventListener('animationend', function () {
+         item.classList.remove('cubes__animo-flip');
+      })
+      console.log(item);
    })
 
-   // Удаляем класс анимации
-   // cubesLists.forEach((item) => {
-   //    item.addEventListener('animationend', function () {
-   //       item.classList.remove('cubes__animo-flip');
-   //    })
-   // })
 }
 
 // Кнопки управлени часами
