@@ -77,6 +77,28 @@ body {
   background-color: #5fcaa1;
 }
 
+.button-control__wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+.button-control__start {
+  height: 50px;
+  width: 100px;
+  margin: 0 20px;
+}
+
+.button-control__stop {
+  height: 50px;
+  width: 100px;
+  margin: 0 20px;
+}
+
 .time-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,8 +168,8 @@ tr {
           perspective: 6000px;
   -webkit-transform: rotate3d(1, 0, 0, 0deg);
           transform: rotate3d(1, 0, 0, 0deg);
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
 }
 
 .side {

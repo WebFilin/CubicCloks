@@ -7,6 +7,24 @@ body {
 	background-color: rgb(95, 202, 161);
 }
 
+.button-control__wraper {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.button-control__start {
+	height: 50px;
+	width: 100px;
+	margin: 0 20px;
+}
+
+.button-control__stop {
+	height: 50px;
+	width: 100px;
+	margin: 0 20px;
+}
+
 .time-container {
 	display: flex;
 	justify-content: center;
@@ -54,7 +72,7 @@ tr {
 	transform-style: preserve-3d;
 	perspective: 6000px;
 	transform: rotate3d(1, 0, 0, 0deg);
-	animation-duration: 1s;
+	animation-duration: 0.8s;
 }
 
 .side {
