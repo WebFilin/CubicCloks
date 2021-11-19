@@ -14,12 +14,6 @@ const btnStop = document.querySelector(".button-control__stop ")
 const cubes = document.createElement("div");
 cubes.classList.add("cubes", "cubes-wrap");
 
-// Набор имен классов для присвоения анимации определенному набору кубов - пока не используется
-let classCubeNames = {
-   second1: "seconds-1",
-   second2: "seconds-2",
-}
-
 // Создаем грани кубика 
 const cubesSides = `
 		<div class="right side"></div>
@@ -66,7 +60,6 @@ function createNumber(displ, time) {
          // Отрисовываем нужный сегмент цифры по массиву numbers
          if (arrDispl[i][j] === 1) {
             let newCubes = cubes.cloneNode(true);
-
             cells.append(newCubes);
          }
          // Добавляем кубики в строки
@@ -75,18 +68,19 @@ function createNumber(displ, time) {
          displ.append(tr);
       }
    }
-
 }
 
 // Управляем выводом времени на дисплеи - на каждый дисплей (их два на каждую цифру) пердаем свою цифру индивидуально
 function displayControl(hours, minuts, seconds) {
-   // Переформатруем время и разделяем его на два значения для отображения на каждом из 6 табло
-   let displH1 = Number(hours.toString().slice(0, 1));
-   let displH2 = Number(hours.toString().slice(-1,));
-   let displMin1 = Number(minuts.toString().slice(0, 1));
-   let displMin2 = Number(minuts.toString().slice(-1,));
-   let displSec1 = Number(seconds.toString().slice(0, 1));
-   let displSec2 = Number(seconds.toString().slice(-1,));
+
+   // Переформатруем время и разделяем его на два значения для отображения на каждом из 6 табло индивидуально
+
+   displH1 = Number(hours.toString().slice(0, 1));
+   displH2 = Number(hours.toString().slice(-1,));
+   displMin1 = Number(minuts.toString().slice(0, 1));
+   displMin2 = Number(minuts.toString().slice(-1,));
+   displSec1 = Number(seconds.toString().slice(0, 1));
+   displSec2 = Number(seconds.toString().slice(-1,));
 
    // Логика отображения времени - устанавливаем 0 на первом циферблате при полученном одинарном числе
    if (hours > 9) {
@@ -114,25 +108,40 @@ function displayControl(hours, minuts, seconds) {
       createNumber(displSeconds2, displSec2);
    }
 
+   controlAnimo(displSec2, displSeconds2)
+   controlAnimo(displSec1, displSeconds)
+
 }
 
-// Управление анимацией переворота
-// !!!!!!!! Разобраться как подключить анимацию к конкретному дисплею, пока что два дисплея одного разряда дисплея стратуют одновременно
+// !! Разобраться с подключением анимации - сейчас стартуют все блоки а нужно управлять каждым индивидуально
+function controlAnimo(time, displ) {
+
+   targetTimeProxy = {}
+   var targetProxyTimeSecond2 = new Proxy(targetTimeProxy, {
+      set: function (target, key, value) {
+         addAnimoRotation(displ)
+         return true;
+      }
+   });
+   targetProxyTimeSecond2.Seconds2 = time;
+}
+
+
+
+// Управление анимацией переворота числа
 function addAnimoRotation(cubesOnDispl) {
    // Получаем все кубики - на данном дисплее
-   // let cubesLists = cubesOnDispl.querySelectorAll(".cubes");
    let cubesLists = cubesOnDispl.querySelectorAll(".cubes");
 
    // Добавляем класс анимации
    cubesLists.forEach((item) => {
       item.classList.add("cubes__animo-flip");
-      item.addEventListener('animationend', () => {
-         item.classList.remove('cubes__animo-flip');
-      })
    })
 }
 
 currentTime()
+
+
 
 // Кнопки управлени часами
 let intervalTime;
